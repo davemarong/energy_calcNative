@@ -46,10 +46,9 @@ export const Slider = ({ sliderData, setFormulaValues, alignment }) => {
       </Text>
       <SliderElement
         value={value}
-        maximumValue={10}
-        minimumValue={0}
-        step={1}
-        allowTouchTrack
+        maximumValue={max}
+        minimumValue={min}
+        step={step}
         onValueChange={setValue}
         onSlidingComplete={handleUpdateFormulaValue}
       />
