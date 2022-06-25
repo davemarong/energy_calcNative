@@ -10,6 +10,7 @@ import { trykkfall_sliderData } from "./formulaData/SliderData";
 import { trykkfall_link } from "./formulaData/FormulaFunctions";
 import { trykkfall_formula_values } from "./formulaData/FormulaValues";
 import { SliderContainer } from "./components/Slider/SliderContainer";
+import { Filters } from "./components/Filters/Filters";
 
 export default function App() {
   // STATE
@@ -23,21 +24,21 @@ export default function App() {
   const [sliderData, setSliderData] = useState(trykkfall_sliderData);
 
   // The toggleButton/nav that is active."Trykkfall/Hastighet/Diameter"
-  const [alignment, setAlignment] = useState("Trykkfall");
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   // PROPS OBJECT
   const FiltersProps = {
     setFormulaFunctions: setFormulaFunctions,
     setFormulaValues: setFormulaValues,
     setSliderData: setSliderData,
-    alignment: alignment,
-    setAlignment: setAlignment,
+    selectedIndex: selectedIndex,
+    setSelectedIndex: setSelectedIndex,
   };
 
   const SliderContainerProps = {
     sliderData: sliderData,
     setFormulaValues: setFormulaValues,
-    alignment: alignment,
+    selectedIndex: selectedIndex,
   };
 
   return (
@@ -47,6 +48,7 @@ export default function App() {
           <Text h1>Energy calculator</Text>
         </View>
         <View>
+          <Filters {...FiltersProps} />
           <SliderContainer {...SliderContainerProps} />
         </View>
         <View>

@@ -16,7 +16,7 @@ import { Text } from "@rneui/base";
 // Data
 
 // Functional component
-export const Slider = ({ sliderData, setFormulaValues, alignment }) => {
+export const Slider = ({ sliderData, setFormulaValues, selectedIndex }) => {
   // Props
   const { marks, step, min, max, label, metric, defaultValue, stateName } =
     sliderData;
@@ -35,7 +35,7 @@ export const Slider = ({ sliderData, setFormulaValues, alignment }) => {
   // UseEffect
   useEffect(() => {
     handleUpdateFormulaValue("e", value);
-  }, [alignment]);
+  }, [selectedIndex]);
 
   // Return
   return (
