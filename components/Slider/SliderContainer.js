@@ -14,7 +14,7 @@ import { Slider } from "./Slider";
 export const SliderContainer = ({
   sliderData,
   setFormulaValues,
-  alignment,
+  selectedIndex,
 }) => {
   // State
 
@@ -29,7 +29,7 @@ export const SliderContainer = ({
             key={slider.label}
             sliderData={slider}
             setFormulaValues={setFormulaValues}
-            alignment={alignment}
+            selectedIndex={selectedIndex}
           />
         );
       })}

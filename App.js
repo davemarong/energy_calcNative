@@ -11,6 +11,7 @@ import { trykkfall_link } from "./formulaData/FormulaFunctions";
 import { trykkfall_formula_values } from "./formulaData/FormulaValues";
 import { SliderContainer } from "./components/Slider/SliderContainer";
 import { Filters } from "./components/Filters/Filters";
+import { DisplayResult } from "./components/DisplayResult/DisplayResult";
 
 export default function App() {
   // STATE
@@ -46,6 +47,12 @@ export default function App() {
       <View style={styles.container}>
         <View>
           <Text h1>Energy calculator</Text>
+        </View>
+        <View>
+          <DisplayResult
+            formulaValues={formulaValues}
+            formulaFunctions={formulaFunctions}
+          />
         </View>
         <View>
           <Filters {...FiltersProps} />

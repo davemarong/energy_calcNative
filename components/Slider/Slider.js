@@ -1,9 +1,10 @@
 // IMPORT
 
 // React
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // React Native
+import { Animated, View, StyleSheet, Button, SafeAreaView } from "react-native";
 
 // ReactNativeElements
 import { Slider as SliderElement } from "@rneui/themed";
@@ -34,8 +35,29 @@ export const Slider = ({ sliderData, setFormulaValues, selectedIndex }) => {
 
   // UseEffect
   useEffect(() => {
-    handleUpdateFormulaValue("e", value);
+    handleUpdateFormulaValue(value);
   }, [selectedIndex]);
+
+  // const FadeInView = (props) => {
+  //   useEffect(() => {
+  //     Animated.timing(fadeAnim, {
+  //       toValue: 1,
+  //       duration: 10000,
+  //     }).start();
+  //   }, [fadeAnim]);
+
+  //   return (
+  //     <Animated.View // Special animatable View
+  //       style={{
+  //         ...props.style,
+  //         opacity: fadeAnim, // Bind opacity to animated value
+  //       }}
+  //     >
+  //       {props.children}
+  //     </Animated.View>
+  //   );
+  // };
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
 
   // Return
   return (
