@@ -12,6 +12,8 @@ import { trykkfall_formula_values } from "./formulaData/FormulaValues";
 import { SliderContainer } from "./components/Slider/SliderContainer";
 import { Filters } from "./components/Filters/Filters";
 import { DisplayResult } from "./components/DisplayResult/DisplayResult";
+import AnimatedComp from "./components/AnimatedComp";
+import BtnGroup from "./components/ButtonGroup/Buttongroup";
 
 export default function App() {
   // STATE
@@ -28,7 +30,7 @@ export default function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   // PROPS OBJECT
-  const FiltersProps = {
+  const ButtongroupProps = {
     setFormulaFunctions: setFormulaFunctions,
     setFormulaValues: setFormulaValues,
     setSliderData: setSliderData,
@@ -54,8 +56,9 @@ export default function App() {
             formulaFunctions={formulaFunctions}
           />
         </View>
-        <View>
-          <Filters {...FiltersProps} />
+        <View style={{ width: "80%", height: 300 }}>
+          {/* <Filters {...FiltersProps} /> */}
+          <BtnGroup {...ButtongroupProps} />
           <SliderContainer {...SliderContainerProps} />
         </View>
         <View>
@@ -69,5 +72,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     marginTop: 100,
+    // justifyContent: "center",
+    alignItems: "center",
   },
 });

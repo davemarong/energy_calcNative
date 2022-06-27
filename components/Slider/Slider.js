@@ -1,5 +1,3 @@
-// IMPORT
-
 // React
 import { useState, useEffect, useRef } from "react";
 
@@ -38,26 +36,7 @@ export const Slider = ({ sliderData, setFormulaValues, selectedIndex }) => {
     handleUpdateFormulaValue(value);
   }, [selectedIndex]);
 
-  // const FadeInView = (props) => {
-  //   useEffect(() => {
-  //     Animated.timing(fadeAnim, {
-  //       toValue: 1,
-  //       duration: 10000,
-  //     }).start();
-  //   }, [fadeAnim]);
-
-  //   return (
-  //     <Animated.View // Special animatable View
-  //       style={{
-  //         ...props.style,
-  //         opacity: fadeAnim, // Bind opacity to animated value
-  //       }}
-  //     >
-  //       {props.children}
-  //     </Animated.View>
-  //   );
-  // };
-  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
+  const sliderAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
 
   // Return
   return (
@@ -67,12 +46,33 @@ export const Slider = ({ sliderData, setFormulaValues, selectedIndex }) => {
         {value} {metric}
       </Text>
       <SliderElement
+        thumbStyle={{
+          backgroundColor: sliderAnim.interpolate({
+            inputRange: [0, 1],
+            outputRange: ["red", "black"],
+          }),
+        }}
+        // thumbProps={<Animated.Text />}
         value={value}
         maximumValue={max}
         minimumValue={min}
         step={step}
         onValueChange={setValue}
-        onSlidingComplete={handleUpdateFormulaValue}
+        // onSlidingStart={() => {
+        //   Animated.timing(sliderAnim, {
+        //     toValue: 1,
+        //     duration: 200,
+        //     useNativeDriver: false,
+        //   }).start();
+        // }}
+        onSlidingComplete={(value) => {
+          handleUpdateFormulaValue(value);
+          // Animated.timing(sliderAnim, {
+          //   toValue: 0,
+          //   duration: 200,
+          //   useNativeDriver: false,
+          // }).start();
+        }}
       />
     </>
   );

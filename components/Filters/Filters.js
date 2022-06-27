@@ -1,9 +1,10 @@
 // IMPORT
 
 // REACT
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 // REACT NATIVE
+import { Animated, View, StyleSheet, Button, SafeAreaView } from "react-native";
 
 // REACT_NATIVE_ELEMENTS
 import { ButtonGroup } from "@rneui/themed";
@@ -39,14 +40,21 @@ export const Filters = ({
     setSelectedIndex(value);
   };
 
+  // const buttonAnim = useRef(new Animated.Value(0).current);
   // RETURN
   return (
     <>
       <ButtonGroup
         buttons={buttonLabels}
         selectedIndex={selectedIndex}
-        onPress={handleSwitchFilter}
+        onPress={(value) => {
+          handleSwitchFilter(value);
+        }}
+        // Component={<Animated.Text />}
         containerStyle={{ marginBottom: 20 }}
+        // selectedButtonStyle={{
+        //   width: buttonAnim,
+        // }}
       />
     </>
   );
