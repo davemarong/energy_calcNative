@@ -16,7 +16,7 @@ import { Filters } from "./components/Filters/Filters";
 import { DisplayResult } from "./components/DisplayResult/DisplayResult";
 import AnimatedComp from "./components/AnimatedComp";
 import BtnGroup from "./components/ButtonGroup/Buttongroup";
-
+import { PipeCalculator } from "./components/PipeCalculator/PipeCalculator";
 // UTILS
 
 // DATA
@@ -87,10 +87,10 @@ export default function App() {
             initialParams={{ ...HomeProps }}
           />
           <Stack.Screen
-            name="Calculator"
-            component={Calc}
+            name="Rør"
+            component={PipeCalculator}
             options={{
-              title: "Calculator",
+              title: "Rør",
             }}
             initialParams={{ itemId: 42 }}
           />

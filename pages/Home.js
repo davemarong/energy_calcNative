@@ -7,7 +7,7 @@ import { useState } from "react";
 import { StyleSheet, View, Button } from "react-native";
 
 // REACT_NATIVE_ELEMENTS
-import { Text } from "@rneui/themed";
+import { Text, ListItem } from "@rneui/themed";
 
 // COMPONENTS
 import { Slider } from "../components/Slider/Slider";
@@ -20,9 +20,6 @@ import BtnGroup from "../components/ButtonGroup/Buttongroup";
 // UTILS
 
 // DATA
-import { trykkfall_sliderData } from "../formulaData/SliderData";
-import { trykkfall_link } from "../formulaData/FormulaFunctions";
-import { trykkfall_formula_values } from "../formulaData/FormulaValues";
 
 // NAVIGATION
 import { NavigationContainer } from "@react-navigation/native";
@@ -68,21 +65,73 @@ export const Home = (props) => {
     selectedIndex: selectedIndex,
   };
 
+  const homeMeny_items = [
+    {
+      title: "Rør",
+      content:
+        "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+      id: 0,
+      route: "Rør",
+    },
+    {
+      title: "Vann",
+      content:
+        "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+      id: 1,
+      route: "Vann",
+    },
+    {
+      title: "Betong",
+      content:
+        "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+      id: 2,
+      route: "Betong",
+    },
+    {
+      title: "Klima",
+      content:
+        "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+      id: 3,
+      route: "Klima",
+    },
+    {
+      title: "Annsidig",
+      content:
+        "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+      id: 4,
+      route: "Annsidig",
+    },
+  ];
+
   // RETURN
   return (
-    <View>
-      <Button
-        title="Go to Calc"
-        onPress={() => navigation.navigate("Calculator")}
-      />
+    <View style={styles.container}>
+      {homeMeny_items.map((item) => {
+        return (
+          <ListItem
+            style={styles.item}
+            key={item.id}
+            onPress={() => {
+              navigation.navigate(item.route);
+            }}
+          >
+            <ListItem.Content>
+              <ListItem.Title>{item.title}</ListItem.Title>
+              <ListItem.Subtitle>{item.content}</ListItem.Subtitle>
+            </ListItem.Content>
+          </ListItem>
+        );
+      })}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100,
-    // justifyContent: "center",
-    alignItems: "center",
+    // width: "90%",
+  },
+  item: {
+    width: "auto",
+    borderWidth: 1,
   },
 });

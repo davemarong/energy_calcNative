@@ -10,19 +10,19 @@ import { StyleSheet, View, Button } from "react-native";
 import { Text } from "@rneui/themed";
 
 // COMPONENTS
-import { Slider } from "../components/Slider/Slider";
-import { SliderContainer } from "../components/Slider/SliderContainer";
-import { Filters } from "../components/Filters/Filters";
-import { DisplayResult } from "../components/DisplayResult/DisplayResult";
-import AnimatedComp from "../components/AnimatedComp";
-import BtnGroup from "../components/ButtonGroup/Buttongroup";
+import { Slider } from "../../components/Slider/Slider";
+import { SliderContainer } from "../../components/Slider/SliderContainer";
+import { Filters } from "../../components/Filters/Filters";
+import { DisplayResult } from "../../components/DisplayResult/DisplayResult";
+import AnimatedComp from "../../components/AnimatedComp";
+import BtnGroup from "../../components/ButtonGroup/Buttongroup";
 
 // UTILS
 
 // DATA
-import { trykkfall_sliderData } from "../formulaData/SliderData";
-import { trykkfall_link } from "../formulaData/FormulaFunctions";
-import { trykkfall_formula_values } from "../formulaData/FormulaValues";
+import { trykkfall_sliderData } from "../../formulaData/SliderData";
+import { trykkfall_link } from "../../formulaData/FormulaFunctions";
+import { trykkfall_formula_values } from "../../formulaData/FormulaValues";
 
 // NAVIGATION
 import { NavigationContainer } from "@react-navigation/native";
@@ -68,10 +68,6 @@ export const PipeCalculator = ({ navigation }) => {
   // RETURN
   return (
     <View>
-      <Button
-        title="Go to Calc"
-        onPress={() => navigation.navigate("Calculator")}
-      />
       <View style={styles.container}>
         <View>
           <Text h1>Energy calculator</Text>
