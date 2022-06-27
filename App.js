@@ -1,20 +1,40 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { Text } from "@rneui/themed";
-import { Slider } from "./components/Slider/Slider";
+// IMPORT
+
+// REACT
 import { useState } from "react";
 
-// Data
-import { trykkfall_sliderData } from "./formulaData/SliderData";
-import { trykkfall_link } from "./formulaData/FormulaFunctions";
-import { trykkfall_formula_values } from "./formulaData/FormulaValues";
+// REACT NATIVE
+import { StyleSheet, View, Button } from "react-native";
+
+// REACT_NATIVE_ELEMENTS
+import { Text } from "@rneui/themed";
+
+// COMPONENTS
+import { Slider } from "./components/Slider/Slider";
 import { SliderContainer } from "./components/Slider/SliderContainer";
 import { Filters } from "./components/Filters/Filters";
 import { DisplayResult } from "./components/DisplayResult/DisplayResult";
 import AnimatedComp from "./components/AnimatedComp";
 import BtnGroup from "./components/ButtonGroup/Buttongroup";
 
+// UTILS
+
+// DATA
+import { trykkfall_sliderData } from "./formulaData/SliderData";
+import { trykkfall_link } from "./formulaData/FormulaFunctions";
+import { trykkfall_formula_values } from "./formulaData/FormulaValues";
+
+// NAVIGATION
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
+// OTHER
+import { StatusBar } from "expo-status-bar";
+import { Home } from "./pages/Home";
+import { Calc } from "./pages/Calc";
+
+// FUNCTIONAL COMPONENTS
 export default function App() {
   // STATE
   // User input values
@@ -29,42 +49,53 @@ export default function App() {
   // The toggleButton/nav that is active."Trykkfall/Hastighet/Diameter"
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  // PROPS OBJECT
-  const ButtongroupProps = {
-    setFormulaFunctions: setFormulaFunctions,
+  // NAVIGATION
+  const Stack = createNativeStackNavigator();
+
+  const HomeProps = {
+    formulaValues: formulaValues,
     setFormulaValues: setFormulaValues,
+    formulaFunctions: formulaFunctions,
+    setFormulaFunctions: setFormulaFunctions,
+    sliderData: sliderData,
     setSliderData: setSliderData,
-    selectedIndex: selectedIndex,
+    selectedIndex: setSliderData,
     setSelectedIndex: setSelectedIndex,
   };
-
-  const SliderContainerProps = {
-    sliderData: sliderData,
-    setFormulaValues: setFormulaValues,
-    selectedIndex: selectedIndex,
-  };
-
+  // RETURN
   return (
     <SafeAreaProvider>
-      <View style={styles.container}>
-        <View>
-          <Text h1>Energy calculator</Text>
-        </View>
-        <View>
-          <DisplayResult
-            formulaValues={formulaValues}
-            formulaFunctions={formulaFunctions}
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: "#f4511e",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+          initialRouteName="Home"
+        >
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              headerTitle: "My home",
+            }}
+            initialParams={{ ...HomeProps }}
           />
-        </View>
-        <View style={{ width: "80%", height: 300 }}>
-          {/* <Filters {...FiltersProps} /> */}
-          <BtnGroup {...ButtongroupProps} />
-          <SliderContainer {...SliderContainerProps} />
-        </View>
-        <View>
-          <StatusBar style="auto" />
-        </View>
-      </View>
+          <Stack.Screen
+            name="Calculator"
+            component={Calc}
+            options={{
+              title: "Calculator",
+            }}
+            initialParams={{ itemId: 42 }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }

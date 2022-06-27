@@ -44,6 +44,7 @@ const BtnGroup = ({
       <View style={styles.btnGroup}>
         {buttongroup_items.map((button) => {
           return (
+            // Maybe change to "Pressable" in the future
             <TouchableOpacity
               key={button.label}
               style={[

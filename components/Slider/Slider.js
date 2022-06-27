@@ -41,10 +41,12 @@ export const Slider = ({ sliderData, setFormulaValues, selectedIndex }) => {
   // Return
   return (
     <>
-      <Text>{label}</Text>
-      <Text>
-        {value} {metric}
-      </Text>
+      <View style={styles.label}>
+        <Text>{label}</Text>
+        <Text>
+          {value} {metric}
+        </Text>
+      </View>
       <SliderElement
         thumbStyle={{
           backgroundColor: sliderAnim.interpolate({
@@ -77,3 +79,10 @@ export const Slider = ({ sliderData, setFormulaValues, selectedIndex }) => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  label: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+});
