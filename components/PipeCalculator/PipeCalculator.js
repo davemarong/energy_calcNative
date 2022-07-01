@@ -14,56 +14,68 @@ import { Slider } from "../../components/Slider/Slider";
 import { SliderContainer } from "../../components/Slider/SliderContainer";
 import { Filters } from "../../components/Filters/Filters";
 import { DisplayResult } from "../../components/DisplayResult/DisplayResult";
-import AnimatedComp from "../../components/AnimatedComp";
 import BtnGroup from "../../components/ButtonGroup/Buttongroup";
 
 // UTILS
 
 // DATA
-import { trykkfall_sliderData } from "../../formulaData/SliderData";
-import { trykkfall_link } from "../../formulaData/FormulaFunctions";
-import { trykkfall_formula_values } from "../../formulaData/FormulaValues";
-
-// NAVIGATION
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+// import { hastighet_inputdata } from "../../Data/formulaData/Inputdata";
+// import { hastighet_link } from "../../Data/formulaData/FormulaFunctions";
+// import { hastighet_formula_values } from "../../Data/formulaData/FormulaValues";
+// import { pipe_buttonLabels } from "../../Data/formulaData/ButtonGroupLabels";
+// import { apv_inputdata } from "../../Data/formulaData/InputData";
+// import { apv_link } from "../../Data/formulaData/FormulaFunctions";
+// import { apv_formula_values } from "../../Data/formulaData/FormulaValues";
+// import { threeKv_buttonLabels } from "../../Data/formulaData/ButtonGroupLabels";
 
 // OTHER
 import { StatusBar } from "expo-status-bar";
+import { Input } from "../Input/Input";
+import { InputContainer } from "../Input/InputContainer";
 
 // FUNCTIONAL COMPONENTS
-export const PipeCalculator = ({ navigation }) => {
+export const PipeCalculator = ({ route: { params } }) => {
+  // PROPS
+  // const { formulaValue_prop, link_prop, inputdata_prop, buttonLabels_prop } =
+  //   props.route.params.data;
+  // const dude = props.route.params;
+  // console.log("dude", props);
   // STATE
   // User input values
-  const [formulaValues, setFormulaValues] = useState(trykkfall_formula_values);
+  const [formulaValues, setFormulaValues] = useState(params.formulaValue);
 
   // The formula functions that calculate the result values
-  const [formulaFunctions, setFormulaFunctions] = useState(trykkfall_link);
+  const [formulaFunctions, setFormulaFunctions] = useState(
+    params.formulaFunctions
+  );
 
   // The data for the sliders the user interacts with
-  const [sliderData, setSliderData] = useState(trykkfall_sliderData);
+  const [inputdata, setInputdata] = useState(params.inputdata);
+
+  // The buttonGroup labels
+  const [buttonGroup, setButtonGroup] = useState(params.buttonGroup);
 
   // The toggleButton/nav that is active."Trykkfall/Hastighet/Diameter"
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  // NAVIGATION
-  const Stack = createNativeStackNavigator();
+  const [selectedIndex, setSelectedIndex] = useState(1);
 
   // PROPS OBJECT
   const ButtongroupProps = {
     setFormulaFunctions: setFormulaFunctions,
     setFormulaValues: setFormulaValues,
-    setSliderData: setSliderData,
+    setInputdata: setInputdata,
     selectedIndex: selectedIndex,
     setSelectedIndex: setSelectedIndex,
+    buttonGroup: buttonGroup,
+    setButtonGroup: setButtonGroup,
   };
 
   const SliderContainerProps = {
-    sliderData: sliderData,
+    inputdata: inputdata,
     setFormulaValues: setFormulaValues,
     selectedIndex: selectedIndex,
   };
+
+  //
 
   // RETURN
   return (
@@ -78,10 +90,10 @@ export const PipeCalculator = ({ navigation }) => {
             formulaFunctions={formulaFunctions}
           />
         </View>
-        <View style={{ width: "80%", height: 300 }}>
-          {/* <Filters {...FiltersProps} /> */}
+        <View style={{ width: "80%" }}>
           <BtnGroup {...ButtongroupProps} />
           <SliderContainer {...SliderContainerProps} />
+          {/* <InputContainer {...SliderContainerProps} /> */}
         </View>
         <View>
           <StatusBar style="auto" />

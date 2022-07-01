@@ -15,13 +15,13 @@ import { ButtonGroup } from "@rneui/themed";
 
 // DATA
 import { Filter_items } from "./Filters_items";
-import { allFormulaData } from "../../formulaData/CombinedData";
+import { allFormulaData } from "../../Data/formulaData/CombinedData";
 
 // FUNCTIONAL COMPONENTS
 export const Filters = ({
   setFormulaFunctions,
   setFormulaValues,
-  setSliderData,
+  setInputdata,
   selectedIndex,
   setSelectedIndex,
 }) => {
@@ -32,11 +32,11 @@ export const Filters = ({
 
   // FUNCTIONS
   const handleSwitchFilter = (value) => {
-    const { formulaValue, formulaFunctions, sliderData } =
+    const { formulaValue, formulaFunctions, inputdata } =
       allFormulaData[buttonLabels[value]];
     setFormulaFunctions(formulaFunctions);
     setFormulaValues(formulaValue);
-    setSliderData(sliderData);
+    setInputdata(inputdata);
     setSelectedIndex(value);
   };
 

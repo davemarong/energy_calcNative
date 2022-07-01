@@ -15,51 +15,55 @@ import {
 
 // DATA
 import { buttongroup_items } from "./Buttongroup_items";
-import { allFormulaData } from "../../formulaData/CombinedData";
+import { allFormulaData } from "../../Data/formulaData/CombinedData";
 
 // FUNCTIONAL COMPONENTS
 const BtnGroup = ({
   setFormulaFunctions,
   setFormulaValues,
-  setSliderData,
+  setInputdata,
   selectedIndex,
   setSelectedIndex,
+  setButtonGroup,
+  buttonGroup,
 }) => {
   // STATE
-  const [selection, setSelection] = useState(1);
-
+  // console.log(buttonGroup);
   // FUNCTIONS
-  const handleSwitchFilter = (value) => {
-    const { formulaValue, formulaFunctions, sliderData } =
+  const handleSwitchFilter = (value, id) => {
+    console.log(value, id);
+    console.log(allFormulaData[value]);
+    const { formulaValue, formulaFunctions, inputdata, buttonGroup } =
       allFormulaData[value];
     setFormulaFunctions(formulaFunctions);
     setFormulaValues(formulaValue);
-    setSliderData(sliderData);
-    setSelectedIndex(value);
+    setInputdata(inputdata);
+    setButtonGroup(buttonGroup);
+    setSelectedIndex(id);
   };
-
   // RETURN
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.btnGroup}>
-        {buttongroup_items.map((button) => {
+        {buttonGroup.map((button) => {
           return (
             // Maybe change to "Pressable" in the future
             <TouchableOpacity
               key={button.label}
               style={[
                 styles.btn,
-                selection === button.id ? { backgroundColor: "#6B7280" } : null,
+                selectedIndex === button.id
+                  ? { backgroundColor: "#6B7280" }
+                  : null,
               ]}
               onPress={() => {
-                setSelection(button.id);
-                handleSwitchFilter(button.label);
+                handleSwitchFilter(button.label, button.id);
               }}
             >
               <Text
                 style={[
                   styles.btnText,
-                  selection === button.id ? { color: "white" } : null,
+                  selectedIndex === button.id ? { color: "white" } : null,
                 ]}
               >
                 {button.label}

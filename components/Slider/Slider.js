@@ -15,10 +15,10 @@ import { Text } from "@rneui/base";
 // Data
 
 // Functional component
-export const Slider = ({ sliderData, setFormulaValues, selectedIndex }) => {
+export const Slider = ({ inputdata, setFormulaValues, selectedIndex }) => {
   // Props
   const { marks, step, min, max, label, metric, defaultValue, stateName } =
-    sliderData;
+    inputdata;
 
   // State
   const [value, setValue] = useState(defaultValue);

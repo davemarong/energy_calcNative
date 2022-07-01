@@ -1,31 +1,34 @@
 // IMPORT
 
-// React Native
+// REACT
 
-// ReactNativeElements
+// REACT NATIVE
 
-// Components
-import { Slider } from "./Slider";
-// Utils
+// REACT_NATIVE_ELEMENTS
 
-// Data
+// COMPONENTS
+import { Input } from "./Input";
 
-// Functional component
-export const SliderContainer = ({
+// UTILS
+
+// DATA
+
+// FUNCTIONAL COMPONENTS
+export const InputContainer = ({
   inputdata,
   setFormulaValues,
   selectedIndex,
 }) => {
-  // State
+  // STATE
 
-  // Functions
+  // FUNCTIONS
 
-  // Return
+  // RETURN
   return (
     <>
       {inputdata.map((slider) => {
         return (
-          <Slider
+          <Input
             key={slider.label}
             inputdata={slider}
             setFormulaValues={setFormulaValues}

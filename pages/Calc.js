@@ -14,15 +14,14 @@ import { Slider } from "../components/Slider/Slider";
 import { SliderContainer } from "../components/Slider/SliderContainer";
 import { Filters } from "../components/Filters/Filters";
 import { DisplayResult } from "../components/DisplayResult/DisplayResult";
-import AnimatedComp from "../components/AnimatedComp";
 import BtnGroup from "../components/ButtonGroup/Buttongroup";
 
 // UTILS
 
 // DATA
-import { trykkfall_sliderData } from "../formulaData/SliderData";
-import { trykkfall_link } from "../formulaData/FormulaFunctions";
-import { trykkfall_formula_values } from "../formulaData/FormulaValues";
+// import { trykkfall_inputdata } from "../Data/formulaData/Inputdata";
+// import { trykkfall_link } from "../Data/formulaData/FormulaFunctions";
+// import { trykkfall_formula_values } from "../Data/formulaData/FormulaValues";
 
 // NAVIGATION
 import { NavigationContainer } from "@react-navigation/native";
@@ -42,7 +41,7 @@ export const Calc = ({ navigation }) => {
   const [formulaFunctions, setFormulaFunctions] = useState(trykkfall_link);
 
   // The data for the sliders the user interacts with
-  const [sliderData, setSliderData] = useState(trykkfall_sliderData);
+  const [inputdata, setInputdata] = useState(trykkfall_inputdata);
 
   // The toggleButton/nav that is active."Trykkfall/Hastighet/Diameter"
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -54,13 +53,13 @@ export const Calc = ({ navigation }) => {
   const ButtongroupProps = {
     setFormulaFunctions: setFormulaFunctions,
     setFormulaValues: setFormulaValues,
-    setSliderData: setSliderData,
+    setInputdata: setInputdata,
     selectedIndex: selectedIndex,
     setSelectedIndex: setSelectedIndex,
   };
 
   const SliderContainerProps = {
-    sliderData: sliderData,
+    inputdata: inputdata,
     setFormulaValues: setFormulaValues,
     selectedIndex: selectedIndex,
   };
