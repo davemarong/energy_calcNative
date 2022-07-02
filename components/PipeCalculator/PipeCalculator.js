@@ -4,7 +4,7 @@
 import { useState } from "react";
 
 // REACT NATIVE
-import { StyleSheet, View, Button } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 
 // REACT_NATIVE_ELEMENTS
 import { Text } from "@rneui/themed";
@@ -90,11 +90,13 @@ export const PipeCalculator = ({ route: { params } }) => {
             formulaFunctions={formulaFunctions}
           />
         </View>
-        <View style={{ width: "80%" }}>
+        <View style={{ height: 50, width: "80%" }}>
           <BtnGroup {...ButtongroupProps} />
+        </View>
+        <ScrollView style={{ width: "80%" }}>
           <SliderContainer {...SliderContainerProps} />
           {/* <InputContainer {...SliderContainerProps} /> */}
-        </View>
+        </ScrollView>
         <View>
           <StatusBar style="auto" />
         </View>
@@ -105,7 +107,7 @@ export const PipeCalculator = ({ route: { params } }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100,
+    marginTop: 20,
     // justifyContent: "center",
     alignItems: "center",
   },
