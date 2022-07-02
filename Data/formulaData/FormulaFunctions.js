@@ -83,7 +83,7 @@ export const findNyV = (fv) => {
   return (fv.volumstrøm.value * (1 - findMDut(fv))).toFixed(2);
 };
 
-// MED OG UTEN AUTOMATIKS UTREGNING AV VISSE VARIABLER
+// MED OG UTEN AUTOMATISK UTREGNING AV VISSE VARIABLER
 export const findNyEffekt = (fv) => {
   return (
     fv.maksEffekt.value *
@@ -106,6 +106,12 @@ export const findØDut = (fv) => {
     (fv.romtemp.value - fv.variabelUtetemp.value) /
     (fv.romtemp.value - fv.dut.value)
   ).toFixed(2);
+};
+export const findShuntventil = (fv) => {
+  return (fv.volumstrøm.value / Math.sqrt(fv.apv.value)).toFixed(2);
+};
+export const findVentilautoritet = (fv) => {
+  return (fv.apvkpa.value / (fv.apvkpa.value + fv.aprør.value)).toFixed(2);
 };
 
 // Variables with functions
@@ -188,5 +194,19 @@ export const effektreduksjon_link = [
     func: findØDut,
     label: "ФT/ФDUT",
     metric: "%",
+  },
+];
+export const shuntventiler_link = [
+  {
+    func: findShuntventil,
+    label: "Ventilens kv-verdi",
+    metric: "kv-verdi",
+  },
+];
+export const ventilautoritet_link = [
+  {
+    func: findVentilautoritet,
+    label: "Ventilautoritet",
+    metric: "N",
   },
 ];

@@ -26,6 +26,14 @@ const apv = {
   label: "Apv",
   value: 0.3,
 };
+const apvkpa = {
+  label: "ApKpa",
+  value: 5,
+};
+const aprør = {
+  label: "Aprør",
+  value: 5,
+};
 const kvVerdi = {
   label: "KvVerdi",
   value: 2,
@@ -140,4 +148,12 @@ export const effektreduksjon_formula_values = {
   romtemp,
   dut,
   variabelUtetemp,
+};
+export const shuntventiler_formula_values = {
+  volumstrøm,
+  apv,
+};
+export const ventilautoritet_formula_values = {
+  aprør,
+  apvkpa,
 };

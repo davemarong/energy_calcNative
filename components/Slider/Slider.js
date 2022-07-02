@@ -63,7 +63,7 @@ export const Slider = ({ inputdata, setFormulaValues, selectedIndex }) => {
       <View style={styles.label}>
         <Text>{label}</Text>
         <Text>
-          {value} {metric}
+          {value.toFixed(2)} {metric}
         </Text>
       </View>
       <View style={styles.slide_container}>

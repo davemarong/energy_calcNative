@@ -26,15 +26,15 @@ export const homeMeny_items = [
     route: "Rør",
     defaultFormula: "Temperaturregulering",
   },
-  // {
-  //   title: "Shuntventiler",
-  //   content:
-  //     "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
-  //   id: 3,
-  //   inputType: "Slider",
-  //   route: "Rør",
-  //   defaultFormula: "Kapasitetstall",
-  // },
+  {
+    title: "Ventiler",
+    content:
+      "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+    id: 3,
+    inputType: "Slider",
+    route: "Rør",
+    defaultFormula: "Shuntventiler",
+  },
   // {
   //   title: "Annsidig",
   //   content:

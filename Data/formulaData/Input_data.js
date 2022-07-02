@@ -29,7 +29,7 @@ const hastighet = {
   label: "Hastighet",
   stateName: "hastighet",
   metric: "m/s",
-  min: 0.1,
+  min: 0,
   max: 1,
   step: 0.01,
   defaultValue: 1,
@@ -38,7 +38,7 @@ const volumstrøm = {
   label: "Volumstrøm",
   stateName: "volumstrøm",
   metric: "m3/h",
-  min: 0.01,
+  min: 0,
   max: 2,
   step: 0.01,
   defaultValue: 1,
@@ -47,7 +47,7 @@ const kvVerdi = {
   label: "Kv Verdi",
   stateName: "kvVerdi",
   metric: "kvs",
-  min: 0.1,
+  min: 0,
   max: 5,
   step: 0.05,
   defaultValue: 2,
@@ -56,17 +56,35 @@ const apv = {
   label: "ΔPv",
   stateName: "apv",
   metric: "bar",
-  min: 0.1,
+  min: 0,
   max: 1,
   step: 0.01,
   defaultValue: 0.5,
+};
+const apvkpa = {
+  label: "ΔPv",
+  stateName: "apvkpa",
+  metric: "kPa",
+  min: 0,
+  max: 10,
+  step: 0.1,
+  defaultValue: 5,
+};
+const aprør = {
+  label: "ΔPrør",
+  stateName: "aprør",
+  metric: "kPa",
+  min: 0,
+  max: 10,
+  step: 0.1,
+  defaultValue: 5,
 };
 
 const faktorN = {
   label: "Faktor N",
   stateName: "faktorN",
   metric: "n",
-  min: 0.1,
+  min: 0,
   max: 2,
   step: 0.01,
   defaultValue: 1.33,
@@ -217,3 +235,5 @@ export const nyEffekt_inputdata = [
   nyTurTemp,
   nyReturTemp,
 ];
+export const shuntventiler_inputdata = [volumstrøm, apv];
+export const ventilautoritet_inputdata = [aprør, apvkpa];

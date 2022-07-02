@@ -31,8 +31,6 @@ const BtnGroup = ({
   // console.log(buttonGroup);
   // FUNCTIONS
   const handleSwitchFilter = (value, id) => {
-    console.log(value, id);
-    console.log(allFormulaData[value]);
     const { formulaValue, formulaFunctions, inputdata, buttonGroup } =
       allFormulaData[value];
     setFormulaFunctions(formulaFunctions);

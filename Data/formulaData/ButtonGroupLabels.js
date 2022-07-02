@@ -45,3 +45,13 @@ export const effektregulering_buttonLabels = [
     id: 4,
   },
 ];
+export const ventiler_buttonLabels = [
+  {
+    label: "Shuntventiler",
+    id: 1,
+  },
+  {
+    label: "Ventilautoritet",
+    id: 2,
+  },
+];

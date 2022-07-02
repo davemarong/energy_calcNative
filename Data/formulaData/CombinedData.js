@@ -9,6 +9,8 @@ import {
   volumstrøm_formula_values,
   kvVerdi_formula_values,
   apv_formula_values,
+  shuntventiler_formula_values,
+  ventilautoritet_formula_values,
 } from "./FormulaValues";
 import {
   trykkfall_link,
@@ -21,6 +23,8 @@ import {
   volumstrøm_link,
   kvVerdi_link,
   apv_link,
+  shuntventiler_link,
+  ventilautoritet_link,
 } from "./FormulaFunctions";
 import {
   trykkfall_inputdata,
@@ -33,11 +37,14 @@ import {
   volumstrøm_inputdata,
   kvVerdi_inputdata,
   apv_inputdata,
+  shuntventiler_inputdata,
+  ventilautoritet_inputdata,
 } from "./Input_data";
 import {
   pipe_buttonLabels,
   threeKv_buttonLabels,
   effektregulering_buttonLabels,
+  ventiler_buttonLabels,
 } from "./ButtonGroupLabels";
 
 export const allFormulaData = {
@@ -106,5 +113,17 @@ export const allFormulaData = {
     formulaFunctions: nyEffekt_link,
     inputdata: nyEffekt_inputdata,
     buttonGroup: effektregulering_buttonLabels,
+  },
+  Shuntventiler: {
+    formulaValue: shuntventiler_formula_values,
+    formulaFunctions: shuntventiler_link,
+    inputdata: shuntventiler_inputdata,
+    buttonGroup: ventiler_buttonLabels,
+  },
+  Ventilautoritet: {
+    formulaValue: ventilautoritet_formula_values,
+    formulaFunctions: ventilautoritet_link,
+    inputdata: ventilautoritet_inputdata,
+    buttonGroup: ventiler_buttonLabels,
   },
 };
