@@ -75,7 +75,7 @@ export const PipeCalculator = ({ route: { params } }) => {
     selectedIndex: selectedIndex,
   };
 
-  // FIX THIS - UGLY
+  // FIX THIS - UGLY!!!
   let Inputcomp;
   if (params.inputType === "Slider") {
     Inputcomp = SliderContainer;

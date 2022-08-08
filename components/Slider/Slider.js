@@ -76,10 +76,11 @@ export const Slider = ({ inputdata, setFormulaValues, selectedIndex }) => {
         <SliderElement
           style={styles.slide}
           thumbStyle={{
-            backgroundColor: sliderAnim.interpolate({
-              inputRange: [0, 1],
-              outputRange: ["red", "black"],
-            }),
+            // backgroundColor: sliderAnim.interpolate({
+            //   inputRange: [0, 1],
+            //   outputRange: ["red", "black"],
+            // }),
+            backgroundColor: "#f4511e",
           }}
           value={value}
           maximumValue={max}
