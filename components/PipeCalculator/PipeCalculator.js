@@ -4,7 +4,7 @@
 import { useState } from "react";
 
 // REACT NATIVE
-import { StyleSheet, View, ScrollView } from "react-native";
+import { StyleSheet, View, ScrollView, TextInput } from "react-native";
 
 // REACT_NATIVE_ELEMENTS
 import { Text } from "@rneui/themed";
@@ -49,7 +49,7 @@ export const PipeCalculator = ({ route: { params } }) => {
     params.formulaFunctions
   );
 
-  // The data for the sliders the user interacts with
+  // The data for the sliders/inputfields the user interacts with
   const [inputdata, setInputdata] = useState(params.inputdata);
 
   // The buttonGroup labels
@@ -94,8 +94,9 @@ export const PipeCalculator = ({ route: { params } }) => {
           <BtnGroup {...ButtongroupProps} />
         </View>
         <ScrollView style={{ width: "80%" }}>
-          <SliderContainer {...SliderContainerProps} />
-          {/* <InputContainer {...SliderContainerProps} /> */}
+          {/* <SliderContainer {...SliderContainerProps} /> */}
+          <InputContainer {...SliderContainerProps} />
+          {/* <TextInput label="dude" /> */}
         </ScrollView>
         <View>
           <StatusBar style="auto" />
