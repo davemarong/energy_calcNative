@@ -5,7 +5,7 @@ export const homeMeny_items = [
       "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
     id: 0,
     route: "Rør",
-    inputType: "Slider",
+    inputType: "From",
     defaultFormula: "Hastighet",
   },
   {
@@ -17,15 +17,15 @@ export const homeMeny_items = [
     inputType: "Slider",
     defaultFormula: "Volumstrøm",
   },
-  {
-    title: "Effektregulering",
-    content:
-      "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
-    id: 2,
-    inputType: "Form",
-    route: "Rør",
-    defaultFormula: "Temperaturregulering",
-  },
+  // {
+  //   title: "Effektregulering",
+  //   content:
+  //     "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+  //   id: 2,
+  //   inputType: "Form",
+  //   route: "Rør",
+  //   defaultFormula: "Temperaturregulering",
+  // },
   {
     title: "Ventiler",
     content:

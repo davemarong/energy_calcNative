@@ -55,15 +55,7 @@ export const Input = ({ inputdata, setFormulaValues, selectedIndex }) => {
       >
         <View style={styles.inputField}>
           <Text style={styles.label}>{label}</Text>
-          <View
-            style={{
-              borderBottomColor: "grey",
-              borderBottomWidth: 1,
-              width: "100%",
-            }}
-          />
           <View style={styles.inputContainer}>
-            <Text>{metric}</Text>
             <TextInput
               style={styles.input}
               keyboardType="numeric"
@@ -74,6 +66,7 @@ export const Input = ({ inputdata, setFormulaValues, selectedIndex }) => {
                 handleUpdateFormulaValue(Number(e.nativeEvent.text));
               }}
             />
+            <Text style={{ marginLeft: 5 }}>{metric}</Text>
           </View>
         </View>
       </ScrollView>
@@ -88,24 +81,26 @@ const styles = StyleSheet.create({
     margin: "auto",
     display: "flex",
     flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     flexWrap: "wrap",
     borderColor: "#0000001f",
     borderWidth: 1,
-    padding: 20,
+    padding: 10,
     borderRadius: 4,
   },
   inputContainer: {
-    width: "100%",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     alignItems: "center",
   },
-  label: { width: "100%", fontSize: "18px" },
+  label: { fontSize: "18px" },
   input: {
     height: 40,
-    width: 60,
+    width: "auto",
     padding: 0,
+    paddingRight: 20,
     fontSize: "30px",
     borderBottomWidth: 0,
   },

@@ -75,28 +75,33 @@ export const PipeCalculator = ({ route: { params } }) => {
     selectedIndex: selectedIndex,
   };
 
-  //
+  // FIX THIS - UGLY
+  let Inputcomp;
+  if (params.inputType === "Slider") {
+    Inputcomp = SliderContainer;
+  } else {
+    Inputcomp = InputContainer;
+  }
 
   // RETURN
   return (
     <View>
       <View style={styles.container}>
-        <View>
-          <Text h1>Energy calculator</Text>
+        <View style={{ margin: 10 }}>
+          <Text h4>Energy calculator</Text>
         </View>
-        <View>
+        <View style={{ margin: 10 }}>
           <DisplayResult
             formulaValues={formulaValues}
             formulaFunctions={formulaFunctions}
           />
         </View>
-        <View style={{ height: 50, width: "80%" }}>
+        <View style={{ height: 50, width: "80%", margin: 10 }}>
           <BtnGroup {...ButtongroupProps} />
         </View>
-        <ScrollView style={{ width: "80%" }}>
+        <ScrollView style={{ width: "80%", margin: 10 }}>
           {/* <SliderContainer {...SliderContainerProps} /> */}
-          <InputContainer {...SliderContainerProps} />
-          {/* <TextInput label="dude" /> */}
+          <Inputcomp {...SliderContainerProps} />
         </ScrollView>
         <View>
           <StatusBar style="auto" />
