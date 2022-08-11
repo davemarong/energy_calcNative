@@ -23,16 +23,27 @@ export const Input = ({ inputdata, setFormulaValues, selectedIndex }) => {
 
   // STATE
   const [value, setValue] = useState(defaultValue);
+
   // FUNCTIONS
   const handleUpdateFormulaValue = (value) => {
-    console.log(value);
+    const updatedValue = turnStringToNumber(value);
+    console.log("value is " + value);
+    console.log("new value is" + updatedValue);
+
     setFormulaValues((prev) => {
-      console.log({
+      return {
         ...prev,
-        [stateName]: { ...prev[stateName], value: value },
-      });
-      return { ...prev, [stateName]: { ...prev[stateName], value: value } };
+        [stateName]: { ...prev[stateName], value: updatedValue },
+      };
     });
+  };
+  const turnStringToNumber = (value) => {
+    const valueToString = value.toString();
+    if (valueToString.includes(",")) {
+      console.log(typeof Number(valueToString.replaceAll(",", ".")));
+      return Number(valueToString.replaceAll(",", "."));
+    }
+    return value;
   };
 
   // UseEffect
@@ -63,7 +74,8 @@ export const Input = ({ inputdata, setFormulaValues, selectedIndex }) => {
               onChangeText={setValue}
               onChange={(e) => {
                 e.persist();
-                handleUpdateFormulaValue(Number(e.nativeEvent.text));
+                // console.log(typeof e.nativeEvent.text);
+                handleUpdateFormulaValue(e.nativeEvent.text);
               }}
             />
             <Text style={{ marginLeft: 5 }}>{metric}</Text>
