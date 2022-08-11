@@ -3,33 +3,33 @@
 export const findTrykkfallPlast = (fv) => {
   return (
     3623 *
-    (fv.luftmengde.value * 3600) ** 1.707 *
+    (fv.vannmengde.value * 3600) ** 1.707 *
     fv.diameter.value ** -4.642
   ).toFixed(2);
 };
 export const findTrykkfallStål = (fv) => {
   return (
     4357 *
-    (fv.luftmengde.value * 3600) ** 1.826 *
+    (fv.vannmengde.value * 3600) ** 1.826 *
     fv.diameter.value ** -4.892
   ).toFixed(2);
 };
 export const findDiameterRørPlast = (fv) => {
   return (
-    (5.843 * (fv.luftmengde.value * 3600) ** 0.367) /
+    (5.843 * (fv.vannmengde.value * 3600) ** 0.367) /
     fv.trykkfall.value ** 0.215
   ).toFixed(2);
 };
 
 export const findDiameterRørStål = (fv) => {
   return (
-    (5.545 * (fv.luftmengde.value * 3600) ** 0.373) /
+    (5.545 * (fv.vannmengde.value * 3600) ** 0.373) /
     fv.trykkfall.value ** 0.204
   ).toFixed(2);
 };
 export const findHastighet = (fv) => {
   return (
-    ((4 * fv.luftmengde.value) /
+    ((4 * fv.vannmengde.value) /
       (3.14 * (fv.diameter.value * fv.diameter.value))) *
     1000
   ).toFixed(2);
@@ -116,10 +116,10 @@ export const findVentilautoritet = (fv) => {
 
 // Variables with functions
 
-// When the user clicks on the link/button of the "label" (sirkulær luftmengde),
+// When the user clicks on the link/button of the "label" (sirkulær vannmengde),
 // the user will get sliders based
 // on the information, and the result of these sliders input are
-// based on the formulas in the functions(findSirkulærLuftmengde, findSirkulærLuftmengdeTrykkfall)
+// based on the formulas in the functions(findSirkulærVannmengde, findSirkulærVannmengdeTrykkfall)
 
 export const trykkfall_link = [
   // These functions/formulas calculate the result that will be shown in the "result area"

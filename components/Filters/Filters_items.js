@@ -1,6 +1,6 @@
 export const filter_items = [
   // {
-  //   label: "Luftmengde",
+  //   label: "Vannmengde",
   //   id: 0,
   // },
   {

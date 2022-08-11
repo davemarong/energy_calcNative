@@ -1,6 +1,6 @@
-const luftmengde = {
-  label: "Luftmengde",
-  stateName: "luftmengde",
+const vannmengde = {
+  label: "Vannmengde",
+  stateName: "vannmengde",
   metric: "l/s",
   min: 0,
   max: 1,
@@ -170,9 +170,9 @@ const effektReduksjon = {
   step: 1,
   defaultValue: 68,
 };
-export const trykkfall_inputdata = [luftmengde, diameter];
-export const diameter_rør_inputdata = [trykkfall, luftmengde];
-export const hastighet_inputdata = [diameter, luftmengde];
+export const trykkfall_inputdata = [vannmengde, diameter];
+export const diameter_rør_inputdata = [trykkfall, vannmengde];
+export const hastighet_inputdata = [diameter, vannmengde];
 export const volumstrøm_inputdata = [apv, kvVerdi];
 export const kvVerdi_inputdata = [apv, volumstrøm];
 export const apv_inputdata = [volumstrøm, kvVerdi];

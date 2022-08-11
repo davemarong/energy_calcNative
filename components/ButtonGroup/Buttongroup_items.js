@@ -1,6 +1,6 @@
 export const buttongroup_items = [
   // {
-  //   label: "Luftmengde",
+  //   label: "Vannmengde",
   //   id: 0,
   // },
   {

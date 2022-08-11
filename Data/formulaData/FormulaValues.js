@@ -2,8 +2,8 @@ const diameter = {
   label: "Diameter",
   value: 100,
 };
-const luftmengde = {
-  label: "Luftmengde",
+const vannmengde = {
+  label: "Vannmengde",
   value: 2.5,
 };
 const lufthastighet = {
@@ -93,15 +93,15 @@ const effektReduksjon = {
 
 export const trykkfall_formula_values = {
   diameter,
-  luftmengde,
+  vannmengde,
 };
 export const diameterRør_formula_values = {
   trykkfall,
-  luftmengde,
+  vannmengde,
 };
 export const hastighet_formula_values = {
   diameter,
-  luftmengde,
+  vannmengde,
 };
 export const volumstrøm_formula_values = {
   kvVerdi,

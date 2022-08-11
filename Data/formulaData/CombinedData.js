@@ -48,10 +48,10 @@ import {
 } from "./ButtonGroupLabels";
 
 export const allFormulaData = {
-  // Luftmengde: {
-  //   formulaValue: luftmengde_formula_values,
-  //   formulaFunctions: luftmengde_link,
-  //   inputdata: luftmengde_inputdata,
+  // Vannmengde: {
+  //   formulaValue: vannmengde_formula_values,
+  //   formulaFunctions: vannmengde_link,
+  //   inputdata: vannmengde_inputdata,
   //   buttonGroup: pipe_buttonLabels,
   // },
   Hastighet: {
