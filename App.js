@@ -27,6 +27,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 // OTHER
 import { StatusBar } from "expo-status-bar";
+import { StartPage } from "./pages/StartPage";
 import { Home } from "./pages/Home";
 import { Calc } from "./pages/Calc";
 
@@ -51,13 +52,20 @@ export default function App() {
               fontWeight: "bold",
             },
           }}
-          initialRouteName="Home"
+          initialRouteName="StartPage"
         >
+          <Stack.Screen
+            name="StartPage"
+            component={StartPage}
+            options={{
+              headerTitle: "Home",
+            }}
+          />
           <Stack.Screen
             name="Home"
             component={Home}
             options={{
-              headerTitle: "My home",
+              headerTitle: "Formler",
             }}
           />
           <Stack.Screen

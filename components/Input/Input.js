@@ -27,9 +27,6 @@ export const Input = ({ inputdata, setFormulaValues, selectedIndex }) => {
   // FUNCTIONS
   const handleUpdateFormulaValue = (value) => {
     const updatedValue = turnStringToNumber(value);
-    console.log("value is " + value);
-    console.log("new value is" + updatedValue);
-
     setFormulaValues((prev) => {
       return {
         ...prev,
@@ -38,10 +35,8 @@ export const Input = ({ inputdata, setFormulaValues, selectedIndex }) => {
     });
   };
   const turnStringToNumber = (value) => {
-    const valueToString = value.toString();
-    if (valueToString.includes(",")) {
-      console.log(typeof Number(valueToString.replaceAll(",", ".")));
-      return Number(valueToString.replaceAll(",", "."));
+    if (value.toString().includes(",")) {
+      return Number(value.toString().replaceAll(",", "."));
     }
     return value;
   };
@@ -74,7 +69,6 @@ export const Input = ({ inputdata, setFormulaValues, selectedIndex }) => {
               onChangeText={setValue}
               onChange={(e) => {
                 e.persist();
-                // console.log(typeof e.nativeEvent.text);
                 handleUpdateFormulaValue(e.nativeEvent.text);
               }}
             />

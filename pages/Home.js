@@ -19,9 +19,9 @@ import { allFormulaData } from "../Data/formulaData/CombinedData";
 // OTHER
 
 // FUNCTIONAL COMPONENTS
-export const Home = (props) => {
+export const Home = ({ route: { params: menyItems }, navigation }) => {
   // PROPS
-  const { navigation } = props;
+  console.log(menyItems, navigation);
 
   // PROPS OBJECT
   const findDefaultFormula = (formulaTitle) => allFormulaData[formulaTitle];
@@ -29,7 +29,7 @@ export const Home = (props) => {
   // RETURN
   return (
     <View style={styles.container}>
-      {homeMeny_items.map((item) => {
+      {menyItems.map((item) => {
         return (
           <ListItem
             style={styles.item}
@@ -60,5 +60,6 @@ const styles = StyleSheet.create({
   item: {
     width: "auto",
     borderWidth: 1,
+    margin: 10,
   },
 });

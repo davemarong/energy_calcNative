@@ -41,6 +41,7 @@ export const PipeCalculator = ({ route: { params } }) => {
   // const dude = props.route.params;
   // console.log("dude", props);
   // STATE
+  console.log(params);
   // User input values
   const [formulaValues, setFormulaValues] = useState(params.formulaValue);
 
