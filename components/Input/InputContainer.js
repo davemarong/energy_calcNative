@@ -18,6 +18,8 @@ export const InputContainer = ({
   inputdata,
   setFormulaValues,
   selectedIndex,
+  lastInputValues,
+  setLastInputValues,
 }) => {
   // STATE
 
@@ -33,6 +35,8 @@ export const InputContainer = ({
             inputdata={slider}
             setFormulaValues={setFormulaValues}
             selectedIndex={selectedIndex}
+            lastInputValues={lastInputValues}
+            setLastInputValues={setLastInputValues}
           />
         );
       })}

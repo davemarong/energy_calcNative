@@ -41,7 +41,6 @@ export const PipeCalculator = ({ route: { params } }) => {
   // const dude = props.route.params;
   // console.log("dude", props);
   // STATE
-  console.log(params);
   // User input values
   const [formulaValues, setFormulaValues] = useState(params.formulaValue);
 
@@ -59,6 +58,9 @@ export const PipeCalculator = ({ route: { params } }) => {
   // The toggleButton/nav that is active."Trykkfall/Hastighet/Diameter"
   const [selectedIndex, setSelectedIndex] = useState(1);
 
+  // The last values the user has put in the input fields.
+  const [lastInputValues, setLastInputValues] = useState({});
+
   // PROPS OBJECT
   const ButtongroupProps = {
     setFormulaFunctions: setFormulaFunctions,
@@ -74,6 +76,8 @@ export const PipeCalculator = ({ route: { params } }) => {
     inputdata: inputdata,
     setFormulaValues: setFormulaValues,
     selectedIndex: selectedIndex,
+    lastInputValues: lastInputValues,
+    setLastInputValues: setLastInputValues,
   };
 
   // FIX THIS - UGLY!!!

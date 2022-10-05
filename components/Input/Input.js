@@ -16,7 +16,13 @@ import { Input as InputElement, Text } from "@rneui/themed";
 // DATA
 
 // FUNCTIONAL COMPONENTS
-export const Input = ({ inputdata, setFormulaValues, selectedIndex }) => {
+export const Input = ({
+  inputdata,
+  setFormulaValues,
+  selectedIndex,
+  lastInputValues,
+  setLastInputValues,
+}) => {
   // PROPS
   const { marks, step, min, max, label, metric, defaultValue, stateName } =
     inputdata;
@@ -41,9 +47,37 @@ export const Input = ({ inputdata, setFormulaValues, selectedIndex }) => {
     return value;
   };
 
+  // Find if a lastInputValue exists. If it does, set the current inputvalue to that
+  const findLastInputValue = () => {
+    let updatedValue;
+    Object.entries(lastInputValues).forEach((value) => {
+      if (value[0] === stateName) {
+        setValue(value[1]);
+        updatedValue = value[1];
+        return;
+      }
+    });
+    return updatedValue;
+  };
+  // Update the lastInputValue list every time a new value is set
+  const handleUpdateLastValue = (value, valueLabel) => {
+    setLastInputValues((prev) => {
+      return {
+        ...prev,
+        [valueLabel]: value,
+      };
+    });
+  };
+
   // UseEffect
   useEffect(() => {
-    handleUpdateFormulaValue(value);
+    const updatedValue = findLastInputValue();
+    console.log(updatedValue);
+    if (updatedValue) {
+      handleUpdateFormulaValue(updatedValue);
+    } else {
+      handleUpdateFormulaValue(value);
+    }
   }, [selectedIndex]);
 
   // RETURN
@@ -70,6 +104,7 @@ export const Input = ({ inputdata, setFormulaValues, selectedIndex }) => {
               onChange={(e) => {
                 e.persist();
                 handleUpdateFormulaValue(e.nativeEvent.text);
+                handleUpdateLastValue(e.nativeEvent.text, stateName);
               }}
             />
             <Text style={{ marginLeft: 5 }}>{metric}</Text>
