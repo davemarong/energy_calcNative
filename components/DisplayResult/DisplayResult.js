@@ -26,31 +26,43 @@ export const DisplayResult = ({
 }) => {
   // STATE
   // This is the selected toolType value that will be used in the formulas
-  const [selected, setSelected] = useState("");
+
+  // FIX THISS!!!!!!This will work for now, but when we get more "tooltypes", we need to change this up
+  const [selected, setSelected] = useState(toolTypes ? "Stålrør" : "");
+  // FIX THISS!!!!
+
   // FUNCTIONS
-  console.log(formulaFunctions);
-  const result = formulaFunctions.map((item) => {
-    return {
-      label: item.label,
-      value: item.func(formulaValues, selected),
-      metric: item.metric,
-    };
-  });
-  console.log(result);
+
+  // console.log(formulaFunctions);
+  // const result = formulaFunctions.map((item) => {
+  //   return {
+  //     label: item.label,
+  //     value: item.func(formulaValues, selected),
+  //     metric: item.metric,
+  //   };
+  // });
+  let result = [];
+  for (let i = 0; i < formulaFunctions.length; i++) {
+    let resultObjects = formulaFunctions[i].func(formulaValues, selected);
+    result = [...result, ...resultObjects];
+  }
   // RETURN
   return (
     <View>
-      <SelectList
-        setSelected={setSelected}
-        data={toolTypes}
-        defaultOption={{ key: "Stålrør", value: "Stålrør" }}
-      />
       {result.map((item) => {
         return (
           <ListItem key={item.label}>
-            <Text>{item.label}</Text>
+            {item.toolType ? (
+              <SelectList
+                setSelected={setSelected}
+                data={toolTypes}
+                defaultOption={{ key: "Stålrør", value: "Stålrør" }}
+              />
+            ) : (
+              <Text>{item.label}</Text>
+            )}
             <Text>
-              {item.value} {item.metric}
+              {item.result} {item.metric}
             </Text>
           </ListItem>
         );

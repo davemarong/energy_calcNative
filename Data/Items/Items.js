@@ -54,34 +54,34 @@ export const vannMeny_items = [
     inputType: "From",
     defaultFormula: "Hastighet",
   },
-  {
-    title: "Shunt-Ventiler",
-    content:
-      "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
-    id: 1,
-    route: "Rør",
-    inputType: "From",
-    defaultFormula: "Volumstrøm",
-  },
+  // {
+  //   title: "Shunt-Ventiler",
+  //   content:
+  //     "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+  //   id: 1,
+  //   route: "Rør",
+  //   inputType: "From",
+  //   defaultFormula: "Volumstrøm",
+  // },
 
-  {
-    title: "Effekt",
-    content:
-      "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
-    id: 3,
-    inputType: "From",
-    route: "Rør",
-    defaultFormula: "Shuntventiler",
-  },
-  {
-    title: "Ekspansjon",
-    content:
-      "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
-    id: 4,
-    inputType: "From",
-    route: "Rør",
-    defaultFormula: "Shuntventiler",
-  },
+  // {
+  //   title: "Effekt",
+  //   content:
+  //     "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+  //   id: 3,
+  //   inputType: "From",
+  //   route: "Rør",
+  //   defaultFormula: "Shuntventiler",
+  // },
+  // {
+  //   title: "Ekspansjon",
+  //   content:
+  //     "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+  //   id: 4,
+  //   inputType: "From",
+  //   route: "Rør",
+  //   defaultFormula: "Shuntventiler",
+  // },
 ];
 export const ventilasjonMeny_items = [
   {
@@ -93,34 +93,34 @@ export const ventilasjonMeny_items = [
     inputType: "From",
     defaultFormula: "Hastighet",
   },
-  {
-    title: "Luftmengde basert på ppm",
-    content:
-      "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
-    id: 1,
-    route: "Rør",
-    inputType: "From",
-    defaultFormula: "Volumstrøm",
-  },
+  // {
+  //   title: "Luftmengde basert på ppm",
+  //   content:
+  //     "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+  //   id: 1,
+  //   route: "Rør",
+  //   inputType: "From",
+  //   defaultFormula: "Volumstrøm",
+  // },
 
-  {
-    title: "SFP",
-    content:
-      "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
-    id: 3,
-    inputType: "From",
-    route: "Rør",
-    defaultFormula: "Shuntventiler",
-  },
-  {
-    title: "Ventilasjonsbatteri",
-    content:
-      "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
-    id: 4,
-    inputType: "From",
-    route: "Rør",
-    defaultFormula: "Shuntventiler",
-  },
+  // {
+  //   title: "SFP",
+  //   content:
+  //     "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+  //   id: 3,
+  //   inputType: "From",
+  //   route: "Rør",
+  //   defaultFormula: "Shuntventiler",
+  // },
+  // {
+  //   title: "Ventilasjonsbatteri",
+  //   content:
+  //     "Dette er det som beskriver hva denne kalkulatoren kan gjøre for å berike ditt arbeidsliv",
+  //   id: 4,
+  //   inputType: "From",
+  //   route: "Rør",
+  //   defaultFormula: "Shuntventiler",
+  // },
 ];
 
 export const allMeny_item = [

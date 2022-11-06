@@ -5,24 +5,48 @@ import { pipeTypesData } from "./ToolTypes";
 // Functions
 // FV = FORMULAVALUE
 export const findTrykkfallPlast = (fv) => {
-  return (
+  const firstResult = (
     3623 *
     (fv.vannmengde.value * 3600) ** 1.707 *
     fv.diameter.value ** -4.642
   ).toFixed(2);
+  return [
+    {
+      label: "Trykkfall Plast",
+      result: firstResult,
+      metric: "pa/m",
+      toolType: false,
+    },
+  ];
 };
 export const findTrykkfallStål = (fv) => {
-  return (
+  const firstResult = (
     4357 *
     (fv.vannmengde.value * 3600) ** 1.826 *
     fv.diameter.value ** -4.892
   ).toFixed(2);
+  return [
+    {
+      label: "Trykkfall Stål",
+      result: firstResult,
+      metric: "pa/m",
+      toolType: false,
+    },
+  ];
 };
 export const findDiameterRørPlast = (fv) => {
-  return (
+  const firstResult = (
     (5.843 * (fv.vannmengde.value * 3600) ** 0.367) /
     fv.trykkfall.value ** 0.215
   ).toFixed(2);
+  return [
+    {
+      label: "Diameter Plast",
+      result: firstResult,
+      metric: "mm",
+      toolType: false,
+    },
+  ];
 };
 
 export const findDiameterRørStål = (fv) => {
@@ -32,11 +56,14 @@ export const findDiameterRørStål = (fv) => {
   ).toFixed(2);
 };
 export const findHastighet = (fv) => {
-  return (
+  const firstResult = (
     ((4 * fv.vannmengde.value) /
       (3.14 * (fv.diameter.value * fv.diameter.value))) *
     1000
   ).toFixed(2);
+  return [
+    { label: "Hastighet", result: firstResult, metric: "m/s", toolType: false },
+  ];
 };
 export const findVolumstrøm = (fv) => {
   return (fv.kvVerdi.value * Math.sqrt(fv.apv.value)).toFixed(2);
@@ -123,15 +150,22 @@ export const findDiameterRør = (fv, pipeType) => {
     (5.545 * (fv.vannmengde.value * 3600) ** 0.373) /
     fv.trykkfall.value ** 0.204
   ).toFixed(2);
-  return roundUpValue(firstResult, pipeTypesData[pipeType]);
+  const [readableValue, technicalValue] = roundUpValue(
+    firstResult,
+    pipeTypesData[pipeType]
+  );
+  const trykkfall = findTrykkfall(fv, technicalValue);
+  return [
+    { label: "Rør", result: readableValue, metric: "", toolType: true },
+    { label: "Trykkfall", result: trykkfall, metric: "", toolType: false },
+  ];
 };
 
 export const findTrykkfall = (fv, diameter) => {
-  console.log(fv);
   return (
-    (4357 * (fv.vannmengde.value * 3600) ** 1.826 * diameter ** -4.892)
-      // fv.diameter.value ** -4.892
-      .toFixed(2)
+    3623 *
+    (fv.vannmengde.value * 3600) ** 1.707 *
+    diameter ** -(4.642).toFixed(2)
   );
 };
 
@@ -139,12 +173,12 @@ const roundUpValue = (value, list) => {
   let readableValue;
   for (let i = 0; i < list.length; i++) {
     if (value < list[i].technicalValue) {
-      readableValue = list[i].readableValue;
+      readableValue = [list[i].readableValue, list[i].technicalValue];
       break;
 
       // If the "value" parameter is higher than all list technicalValues, use the last value in the list
     } else if (value > list[list.length - 1].technicalValue) {
-      readableValue = list[i].readableValue;
+      readableValue = [list[i].readableValue, list[i].technicalValue];
       break;
     }
   }
@@ -176,7 +210,7 @@ export const diameter_rør_link = [
   // { func: findDiameterRørStål, label: "Diameter stålrør", metric: "mm" },
 
   { func: findDiameterRør, label: "Rør", metric: "" },
-  { func: findTrykkfall, label: "Trykkfall", metric: "pa/m" },
+  // { func: findTrykkfall, label: "Trykkfall", metric: "pa/m" },
 ];
 export const hastighet_link = [
   {
