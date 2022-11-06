@@ -52,7 +52,7 @@ export const vannMeny_items = [
     id: 0,
     route: "Rør",
     inputType: "From",
-    defaultFormula: "Hastighet",
+    defaultFormula: "Diameter",
   },
   // {
   //   title: "Shunt-Ventiler",

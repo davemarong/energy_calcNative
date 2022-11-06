@@ -1,10 +1,10 @@
 export const pipe_buttonLabels = [
   {
-    label: "Hastighet",
+    label: "Diameter",
     id: 1,
   },
   {
-    label: "Diameter",
+    label: "Hastighet",
     id: 2,
   },
   {
