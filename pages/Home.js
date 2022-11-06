@@ -1,6 +1,7 @@
 // IMPORT
 
 // REACT
+import { useEffect } from "react";
 
 // REACT NATIVE
 import { StyleSheet, View, Button } from "react-native";
@@ -19,12 +20,19 @@ import { allFormulaData } from "../Data/formulaData/CombinedData";
 // OTHER
 
 // FUNCTIONAL COMPONENTS
-export const Home = ({ route: { params: menyItems }, navigation }) => {
-  // PROPS
-  console.log(menyItems, navigation);
-
-  // PROPS OBJECT
+export const Home = ({
+  route: {
+    params: { menyItems: menyItems, title },
+  },
+  navigation,
+}) => {
+  // FUNCTION
   const findDefaultFormula = (formulaTitle) => allFormulaData[formulaTitle];
+
+  // EFFECT
+  useEffect(() => {
+    navigation.setOptions({ title: title });
+  }, [title]);
 
   // RETURN
   return (
@@ -40,6 +48,8 @@ export const Home = ({ route: { params: menyItems }, navigation }) => {
               navigation.navigate(item.route, {
                 ...defaultFormula,
                 inputType: item.inputType,
+                formerTitle: title,
+                currentTitle: item.title,
               });
             }}
           >
@@ -62,5 +72,9 @@ const styles = StyleSheet.create({
     width: "auto",
     borderWidth: 1,
     margin: 10,
+    shadowColor: "#171717",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
 });

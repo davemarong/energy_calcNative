@@ -32,7 +32,10 @@ export const StartPage = (props) => {
             style={styles.item}
             key={item.id}
             onPress={() => {
-              navigation.navigate("Home", item.menyItems);
+              navigation.navigate("Home", {
+                menyItems: item.menyItems,
+                title: item.title,
+              });
             }}
           >
             <ListItem.Title>{item.title}</ListItem.Title>
@@ -52,6 +55,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: "#f4511e",
     margin: 40,
+    shadowColor: "#171717",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
     // padding: "16px",
   },
 });

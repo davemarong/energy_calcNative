@@ -1,7 +1,7 @@
 // IMPORT
 
 // REACT
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // REACT NATIVE
 import { StyleSheet, View, ScrollView, TextInput } from "react-native";
@@ -34,7 +34,7 @@ import { Input } from "../Input/Input";
 import { InputContainer } from "../Input/InputContainer";
 
 // FUNCTIONAL COMPONENTS
-export const PipeCalculator = ({ route: { params } }) => {
+export const PipeCalculator = ({ navigation, route: { params } }) => {
   // PROPS
   // STATE
   // User input values
@@ -59,6 +59,13 @@ export const PipeCalculator = ({ route: { params } }) => {
 
   // The last values the user has put in the input fields.
   const [lastInputValues, setLastInputValues] = useState({});
+
+  // EFFECT
+  useEffect(() => {
+    navigation.setOptions({
+      title: params.currentTitle,
+    });
+  }, []);
 
   // PROPS OBJECT
   const ButtongroupProps = {
@@ -93,7 +100,7 @@ export const PipeCalculator = ({ route: { params } }) => {
     <View>
       <View style={styles.container}>
         <View style={{ margin: 10 }}>
-          <Text h4>Energy calculator</Text>
+          <Text h4>{params.currentTitle}</Text>
         </View>
         <View style={{ margin: 10 }}>
           <DisplayResult

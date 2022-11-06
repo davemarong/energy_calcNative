@@ -48,23 +48,47 @@ export const DisplayResult = ({
   }
   // RETURN
   return (
-    <View>
+    <View
+      style={{
+        backgroundColor: "white",
+        padding: 20,
+        borderRadius: 10,
+        shadowColor: "#171717",
+        shadowOffset: { width: -2, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+      }}
+    >
       {result.map((item) => {
         return (
-          <ListItem key={item.label}>
+          <View
+            key={item.label}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: 200,
+              marginBottom: 10,
+              marginTop: 10,
+            }}
+          >
             {item.toolType ? (
               <SelectList
                 setSelected={setSelected}
                 data={toolTypes}
                 defaultOption={{ key: "Stålrør", value: "Stålrør" }}
+                search={false}
+                boxStyles={{ borderRadius: 5 }}
               />
             ) : (
               <Text>{item.label}</Text>
             )}
+
             <Text>
               {item.result} {item.metric}
             </Text>
-          </ListItem>
+          </View>
         );
       })}
     </View>

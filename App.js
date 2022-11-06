@@ -64,16 +64,18 @@ export default function App() {
           <Stack.Screen
             name="Home"
             component={Home}
-            options={{
-              headerTitle: "Formler",
-            }}
+            // options={{
+            //   headerTitle: "Formler",
+            // }}
+            options={({ route }) => ({ title: route.params.name })}
           />
           <Stack.Screen
             name="Rør"
             component={PipeCalculator}
-            options={{
-              title: "Rør",
-            }}
+            // options={{
+            //   title: "Rør",
+            // }}
+            options={({ route }) => ({ title: route.params.name })}
           />
         </Stack.Navigator>
       </NavigationContainer>

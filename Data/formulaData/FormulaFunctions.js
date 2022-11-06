@@ -154,7 +154,7 @@ export const findDiameterRør = (fv, pipeType) => {
     firstResult,
     pipeTypesData[pipeType]
   );
-  const trykkfall = findTrykkfall(fv, technicalValue);
+  const trykkfall = findTrykkfall(fv, technicalValue).toFixed(2);
   return [
     { label: "Rør", result: readableValue, metric: "", toolType: true },
     { label: "Trykkfall", result: trykkfall, metric: "", toolType: false },
