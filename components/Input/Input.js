@@ -49,12 +49,11 @@ export const Input = ({
 
   // Find if a lastInputValue exists. If it does, set the current inputvalue to that
   const findLastInputValue = () => {
-    let updatedValue;
+    let updatedValue = value;
     Object.entries(lastInputValues).forEach((value) => {
       if (value[0] === stateName) {
         setValue(value[1]);
         updatedValue = value[1];
-        return;
       }
     });
     return updatedValue;
@@ -72,12 +71,7 @@ export const Input = ({
   // UseEffect
   useEffect(() => {
     const updatedValue = findLastInputValue();
-    console.log(updatedValue);
-    if (updatedValue) {
-      handleUpdateFormulaValue(updatedValue);
-    } else {
-      handleUpdateFormulaValue(value);
-    }
+    handleUpdateFormulaValue(updatedValue);
   }, [selectedIndex]);
 
   // RETURN

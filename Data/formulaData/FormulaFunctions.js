@@ -1,3 +1,7 @@
+// IMPORTS
+// DATA
+import { pipeTypesData } from "./ToolTypes";
+
 // Functions
 // FV = FORMULAVALUE
 export const findTrykkfallPlast = (fv) => {
@@ -114,6 +118,39 @@ export const findVentilautoritet = (fv) => {
   return (fv.apvkpa.value / (fv.apvkpa.value + fv.aprør.value)).toFixed(2);
 };
 
+export const findDiameterRør = (fv, pipeType) => {
+  const firstResult = (
+    (5.545 * (fv.vannmengde.value * 3600) ** 0.373) /
+    fv.trykkfall.value ** 0.204
+  ).toFixed(2);
+  return roundUpValue(firstResult, pipeTypesData[pipeType]);
+};
+
+export const findTrykkfall = (fv, diameter) => {
+  console.log(fv);
+  return (
+    (4357 * (fv.vannmengde.value * 3600) ** 1.826 * diameter ** -4.892)
+      // fv.diameter.value ** -4.892
+      .toFixed(2)
+  );
+};
+
+const roundUpValue = (value, list) => {
+  let readableValue;
+  for (let i = 0; i < list.length; i++) {
+    if (value < list[i].technicalValue) {
+      readableValue = list[i].readableValue;
+      break;
+
+      // If the "value" parameter is higher than all list technicalValues, use the last value in the list
+    } else if (value > list[list.length - 1].technicalValue) {
+      readableValue = list[i].readableValue;
+      break;
+    }
+  }
+  return readableValue;
+};
+
 // Variables with functions
 
 // When the user clicks on the link/button of the "label" (sirkulær vannmengde),
@@ -131,12 +168,15 @@ export const trykkfall_link = [
   { func: findTrykkfallStål, label: "Trykkfall stålrør", metric: "pa/m" },
 ];
 export const diameter_rør_link = [
-  {
-    func: findDiameterRørPlast,
-    label: "Diameter kobber/plastrør",
-    metric: "mm",
-  },
-  { func: findDiameterRørStål, label: "Diameter stålrør", metric: "mm" },
+  // {
+  //   func: findDiameterRørPlast,
+  //   label: "Diameter kobber/plastrør",
+  //   metric: "mm",
+  // },
+  // { func: findDiameterRørStål, label: "Diameter stålrør", metric: "mm" },
+
+  { func: findDiameterRør, label: "Rør", metric: "" },
+  { func: findTrykkfall, label: "Trykkfall", metric: "pa/m" },
 ];
 export const hastighet_link = [
   {

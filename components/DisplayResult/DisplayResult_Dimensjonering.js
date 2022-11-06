@@ -19,31 +19,30 @@ import SelectList from "react-native-dropdown-select-list";
 // DATA
 
 // FUNCTIONAL COMPONENTS
-export const DisplayResult = ({
+export const DisplayResult_Dimensjonering = ({
   formulaValues,
   formulaFunctions,
-  toolTypes,
 }) => {
   // STATE
-  // This is the selected toolType value that will be used in the formulas
-  const [selected, setSelected] = useState("");
+
   // FUNCTIONS
-  console.log(formulaFunctions);
   const result = formulaFunctions.map((item) => {
     return {
       label: item.label,
-      value: item.func(formulaValues, selected),
+      value: item.func(formulaValues),
       metric: item.metric,
     };
   });
-  console.log(result);
+
+  const [selected, setSelected] = useState("");
+
   // RETURN
   return (
     <View>
       <SelectList
         setSelected={setSelected}
-        data={toolTypes}
-        defaultOption={{ key: "Stålrør", value: "Stålrør" }}
+        data={data}
+        onSelect={() => alert(selected)}
       />
       {result.map((item) => {
         return (

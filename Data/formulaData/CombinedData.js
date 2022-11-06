@@ -47,6 +47,7 @@ import {
   ventiler_buttonLabels,
 } from "./ButtonGroupLabels";
 
+import { pipeTypeLabels } from "./ToolTypes";
 export const allFormulaData = {
   // Vannmengde: {
   //   formulaValue: vannmengde_formula_values,
@@ -59,71 +60,83 @@ export const allFormulaData = {
     formulaFunctions: hastighet_link,
     inputdata: hastighet_inputdata,
     buttonGroup: pipe_buttonLabels,
+    toolTypes: [],
   },
   Diameter: {
     formulaValue: diameterRør_formula_values,
     formulaFunctions: diameter_rør_link,
     inputdata: diameter_rør_inputdata,
     buttonGroup: pipe_buttonLabels,
+    toolTypes: pipeTypeLabels,
   },
   Trykkfall: {
     formulaValue: trykkfall_formula_values,
     formulaFunctions: trykkfall_link,
     inputdata: trykkfall_inputdata,
     buttonGroup: pipe_buttonLabels,
+    toolTypes: [],
   },
   Volumstrøm: {
     formulaValue: volumstrøm_formula_values,
     formulaFunctions: volumstrøm_link,
     inputdata: volumstrøm_inputdata,
     buttonGroup: threeKv_buttonLabels,
+    toolTypes: [],
   },
   KvVerdi: {
     formulaValue: kvVerdi_formula_values,
     formulaFunctions: kvVerdi_link,
     inputdata: kvVerdi_inputdata,
     buttonGroup: threeKv_buttonLabels,
+    toolTypes: [],
   },
   Apv: {
     formulaValue: apv_formula_values,
     formulaFunctions: apv_link,
     inputdata: apv_inputdata,
     buttonGroup: threeKv_buttonLabels,
+    toolTypes: [],
   },
   Temperaturregulering: {
     formulaValue: temperaturregulering_formula_values,
     formulaFunctions: temperaturregulering_link,
     inputdata: temperaturregulering_inputdata,
     buttonGroup: effektregulering_buttonLabels,
+    toolTypes: [],
   },
   Mengderegulering: {
     formulaValue: mengderegulering_formula_values,
     formulaFunctions: mengderegulering_link,
     inputdata: mengderegulering_inputdata,
     buttonGroup: effektregulering_buttonLabels,
+    toolTypes: [],
   },
   Effektreduksjon: {
     formulaValue: effektreduksjon_formula_values,
     formulaFunctions: effektreduksjon_link,
     inputdata: effektreduksjon_inputdata,
     buttonGroup: effektregulering_buttonLabels,
+    toolTypes: [],
   },
   NyEffekt: {
     formulaValue: nyEffekt_formula_values,
     formulaFunctions: nyEffekt_link,
     inputdata: nyEffekt_inputdata,
     buttonGroup: effektregulering_buttonLabels,
+    toolTypes: [],
   },
   Shuntventiler: {
     formulaValue: shuntventiler_formula_values,
     formulaFunctions: shuntventiler_link,
     inputdata: shuntventiler_inputdata,
     buttonGroup: ventiler_buttonLabels,
+    toolTypes: [],
   },
   Ventilautoritet: {
     formulaValue: ventilautoritet_formula_values,
     formulaFunctions: ventilautoritet_link,
     inputdata: ventilautoritet_inputdata,
     buttonGroup: ventiler_buttonLabels,
+    toolTypes: [],
   },
 };

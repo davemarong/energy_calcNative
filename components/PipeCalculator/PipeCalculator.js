@@ -36,10 +36,6 @@ import { InputContainer } from "../Input/InputContainer";
 // FUNCTIONAL COMPONENTS
 export const PipeCalculator = ({ route: { params } }) => {
   // PROPS
-  // const { formulaValue_prop, link_prop, inputdata_prop, buttonLabels_prop } =
-  //   props.route.params.data;
-  // const dude = props.route.params;
-  // console.log("dude", props);
   // STATE
   // User input values
   const [formulaValues, setFormulaValues] = useState(params.formulaValue);
@@ -55,6 +51,9 @@ export const PipeCalculator = ({ route: { params } }) => {
   // The buttonGroup labels
   const [buttonGroup, setButtonGroup] = useState(params.buttonGroup);
 
+  // The data for ToolTypes (PipeTypes = Stål, Kobber, Mepla...)
+  const [toolTypes, setToolTypes] = useState(params.toolTypes);
+
   // The toggleButton/nav that is active."Trykkfall/Hastighet/Diameter"
   const [selectedIndex, setSelectedIndex] = useState(1);
 
@@ -66,6 +65,7 @@ export const PipeCalculator = ({ route: { params } }) => {
     setFormulaFunctions: setFormulaFunctions,
     setFormulaValues: setFormulaValues,
     setInputdata: setInputdata,
+    setToolTypes: setToolTypes,
     selectedIndex: selectedIndex,
     setSelectedIndex: setSelectedIndex,
     buttonGroup: buttonGroup,
@@ -99,6 +99,7 @@ export const PipeCalculator = ({ route: { params } }) => {
           <DisplayResult
             formulaValues={formulaValues}
             formulaFunctions={formulaFunctions}
+            toolTypes={toolTypes}
           />
         </View>
         <View style={{ height: 50, width: "80%", margin: 10 }}>

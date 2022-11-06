@@ -36,6 +36,7 @@ export const Home = ({ route: { params: menyItems }, navigation }) => {
             key={item.id}
             onPress={() => {
               const defaultFormula = findDefaultFormula(item.defaultFormula);
+              console.log(defaultFormula);
               navigation.navigate(item.route, {
                 ...defaultFormula,
                 inputType: item.inputType,

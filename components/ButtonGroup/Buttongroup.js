@@ -25,18 +25,25 @@ const BtnGroup = ({
   selectedIndex,
   setSelectedIndex,
   setButtonGroup,
+  setToolTypes,
   buttonGroup,
 }) => {
   // STATE
   // console.log(buttonGroup);
   // FUNCTIONS
   const handleSwitchFilter = (value, id) => {
-    const { formulaValue, formulaFunctions, inputdata, buttonGroup } =
-      allFormulaData[value];
+    const {
+      formulaValue,
+      formulaFunctions,
+      inputdata,
+      buttonGroup,
+      toolTypes,
+    } = allFormulaData[value];
     setFormulaFunctions(formulaFunctions);
     setFormulaValues(formulaValue);
     setInputdata(inputdata);
     setButtonGroup(buttonGroup);
+    setToolTypes(toolTypes);
     setSelectedIndex(id);
   };
   // RETURN
